@@ -1,0 +1,12 @@
+{
+  "name": "pix-backend",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mercadopago": "^1.5.16",
+    "cors": "^2.8.5"
+  }
+}
