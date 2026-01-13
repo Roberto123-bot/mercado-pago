@@ -18,7 +18,7 @@ app.post("/pix", async (req, res) => {
       payer: {
         email: "cliente@teste.com",
       },
-      notification_url: "https://SEU_BACKEND.onrender.com/webhook",
+      notification_url: "https://mercado-pago-kl66.onrender.com/webhook",
     });
 
     res.json({

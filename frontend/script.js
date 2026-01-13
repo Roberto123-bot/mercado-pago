@@ -1,4 +1,4 @@
-const API_URL = "https://SEU_BACKEND.onrender.com";
+const API_URL = "https://mercado-pago-kl66.onrender.com";
 
 const statusEl = document.getElementById("status");
 const qrDiv = document.getElementById("qr");
