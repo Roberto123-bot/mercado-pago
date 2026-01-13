@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mercadopago from "./mercadopago.js";
 import { users } from "./db.js";
+import "dotenv/config";
 
 const app = express();
 
