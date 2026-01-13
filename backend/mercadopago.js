@@ -1,5 +1,7 @@
-import MercadoPago from "mercadopago";
+import mercadopago from "mercadopago";
 
-export const mp = new MercadoPago({
-  accessToken: process.env.MP_ACCESS_TOKEN,
+mercadopago.configure({
+  access_token: process.env.MP_ACCESS_TOKEN,
 });
+
+export default mercadopago;

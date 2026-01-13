@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { mp } from "./mercadopago.js";
+import mercadopago from "./mercadopago.js";
 import { users } from "./db.js";
 
 const app = express();
@@ -11,22 +11,26 @@ app.use(express.json());
 // Criar PIX
 app.post("/pix", async (req, res) => {
   try {
-    const payment = await mp.payment.create({
+    const payment = await mercadopago.payment.create({
       transaction_amount: 9.9,
       description: "Plano Pró - Sistema de Loterias",
       payment_method_id: "pix",
       payer: {
-        email: "cliente@teste.com",
+        email: "teste@email.com",
+        identification: {
+          type: "CPF",
+          number: "19119119100",
+        },
       },
-      notification_url: "https://mercado-pago-kl66.onrender.com/webhook",
     });
 
     res.json({
       qr_code_base64:
         payment.point_of_interaction.transaction_data.qr_code_base64,
     });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    console.error("ERRO MP:", error);
+    res.status(500).json({ error: error.message });
   }
 });
 
